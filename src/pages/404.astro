@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
         <h1>Page not found</h1>
         <p>The page you requested does not exist, but the portfolio is ready to continue elsewhere.</p>
         <div class="cta-row">
-          <a class="button button--primary" href="/">Return home</a>
+          <a class="button button--primary" href={import.meta.env.BASE_URL}>Return home</a>
         </div>
       </div>
     </div>
