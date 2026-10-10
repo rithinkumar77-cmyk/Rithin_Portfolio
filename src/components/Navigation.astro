@@ -1,0 +1,10 @@
+---
+import { siteData } from '../data/site';
+---
+<nav class="site-nav" aria-label="Main navigation">
+  {siteData.navigation.map((item) => (
+    item.label === 'Art'
+      ? <span class="site-nav__inactive" aria-disabled="true">{item.label}</span>
+      : <a href={item.href}>{item.label}</a>
+  ))}
+</nav>

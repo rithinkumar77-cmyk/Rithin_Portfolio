@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import { siteData } from '../data/site';
+---
+
+<Layout title="Contact" description="Contact details for Rithin Kumar.">
+  <main class="page-shell">
+    <div class="container">
+      <SectionIntro eyebrow="Contact" title="Get in touch" description="For QA engineering, test automation, or quality engineering opportunities, reach Rithin by email or LinkedIn." />
+
+      <section class="section">
+        <div class="contact-panel">
+          <div>
+            <h2>{siteData.name}</h2>
+            <p>{siteData.profile.note}</p>
+            <div class="cta-row">
+              <a class="button button--primary" href={`mailto:${siteData.email}`}>Email</a>
+              <a class="button button--secondary" href={siteData.social[0].href} target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button button--secondary" href={siteData.resumeUrl} target="_blank" rel="noreferrer">Open résumé PDF</a>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card__grid">
+              <div class="info-item"><span>Email</span><strong><a href={`mailto:${siteData.email}`}>{siteData.email}</a></strong></div>
+              <div class="info-item"><span>Phone</span><strong><a href={`tel:${siteData.phone}`}>{siteData.phone}</a></strong></div>
+              <div class="info-item"><span>Location</span><strong>{siteData.location}</strong></div>
+              <div class="info-item"><span>LinkedIn</span><strong><a href={siteData.social[0].href} target="_blank" rel="noreferrer">View profile</a></strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

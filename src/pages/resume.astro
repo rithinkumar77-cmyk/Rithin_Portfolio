@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import { siteData } from '../data/site';
+---
+
+<Layout title="Resume" description={`Resume of ${siteData.name}, ${siteData.title}, with experience across retail, banking, and financial services.`}>
+  <main class="page-shell">
+    <div class="container">
+      <section class="resume-heading">
+        <div>
+          <div class="eyebrow">Resume</div>
+          <h1>{siteData.name}</h1>
+          <p class="resume-title">{siteData.title}</p>
+          <p>{siteData.profile.summary}</p>
+        </div>
+        <div class="resume-contact" aria-label="Contact details">
+          <a href={`mailto:${siteData.email}`}>{siteData.email}</a>
+          <a href={`tel:${siteData.phone}`}>{siteData.phone}</a>
+          <span>{siteData.location}</span>
+          <a href={siteData.social[0].href} target="_blank" rel="noreferrer">LinkedIn profile</a>
+          <a href={siteData.resumeUrl} target="_blank" rel="noreferrer">Open résumé PDF</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <SectionIntro eyebrow="Capabilities" title="Skills & tools" />
+        <div class="skills-list">
+          {siteData.skillGroups.map((group) => (
+            <div class="skill-row">
+              <h3>{group.title}</h3>
+              <p>{group.items.join(' · ')}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section">
+        <SectionIntro eyebrow="Experience" title="Work history" />
+        <div class="experience-list">
+          {siteData.experience.map((role) => (
+            <article class="experience-entry">
+              <div class="experience-header">
+                <div>
+                  <h3>{role.role}</h3>
+                </div>
+                <span class="experience-period">{role.period}</span>
+              </div>
+              <p class="experience-project">Domain: {role.domain}</p>
+              {role.sections.map((section) => (
+                <div class="experience-section">
+                  <h4>{section.title}</h4>
+                  <ul>
+                    {section.items.map((item) => <li>{item}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section">
+        <SectionIntro eyebrow="Education" title="Education" />
+        <article class="education-entry">
+          <div>
+            <h3>{siteData.education.degree}</h3>
+            <p>{siteData.education.institution}</p>
+          </div>
+          <span>{siteData.education.period} · {siteData.education.result}</span>
+        </article>
+      </section>
+    </div>
+  </main>
+</Layout>

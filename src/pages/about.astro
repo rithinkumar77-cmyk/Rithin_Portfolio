@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteData } from '../data/site';
+import SectionIntro from '../components/SectionIntro.astro';
+---
+
+<Layout title="About" description="About Rithin Kumar, QA Engineer specializing in API and UI test automation.">
+  <main class="page-shell">
+    <div class="container">
+      <SectionIntro eyebrow="About" title={siteData.title} description={siteData.profile.summary} />
+
+      <section class="section">
+        <div class="grid-3">
+          <article class="card">
+            <h3>Quality engineering</h3>
+            <p>{siteData.profile.note}</p>
+          </article>
+          <article class="card">
+            <h3>Across domains</h3>
+            <p>Experience spans retail POS and payment systems, banking accounts, mutual fund web and mobile products, and R&amp;D project management software.</p>
+          </article>
+          <article class="card">
+            <h3>Framework mindset</h3>
+            <p>Built an extensible API automation framework where new domains can be added without changes to its core, with CI results and reports published for each run.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <SectionIntro eyebrow="Strengths" title="Tools & capabilities" description="A practical toolkit across automated testing, cloud pipelines, hands-on QA, and AI-assisted workflows." />
+        <div class="grid-3">
+          {siteData.skillGroups.map((group) => (
+            <article class="card">
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

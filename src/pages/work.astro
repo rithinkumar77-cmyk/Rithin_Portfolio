@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { siteData } from '../data/site';
+---
+
+<Layout title="Work" description="QA automation projects across retail, banking, and financial services.">
+  <main class="page-shell">
+    <div class="container">
+      <SectionIntro eyebrow="Work" title="Projects & domains" description="A selection of systems and product domains tested across retail, banking, financial services, and enterprise software." />
+
+      <section class="section">
+        <div class="grid-3">
+          {siteData.projects.map((project) => (
+            <ProjectCard
+              title={project.title}
+              category={project.category}
+              description={project.description}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

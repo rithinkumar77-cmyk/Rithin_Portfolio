@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  caption: string;
+  tone: string;
+}
+
+const { title, caption, tone } = Astro.props;
+---
+<article class="gallery-item">
+  <div class="meta">{tone}</div>
+  <strong>{title}</strong>
+  <p>{caption}</p>
+</article>

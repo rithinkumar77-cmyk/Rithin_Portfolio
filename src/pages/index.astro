@@ -1,11 +1,100 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { siteData } from '../data/site';
+import SectionIntro from '../components/SectionIntro.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={siteData.siteName} description={siteData.description}>
+  <main class="page-shell">
+    <section class="container hero hero--editorial" id="intro">
+      <div class="eyebrow">QA engineer / test automation / {siteData.location}</div>
+      <div class="hero-editorial-grid">
+        <h1>Quality you can<br /><span>ship with confidence.</span></h1>
+        <div class="hero-editorial-copy">
+          <p>{siteData.profile.summary}</p>
+        </div>
+      </div>
+
+      <div class="automation-ribbon" aria-label="Automation workflow">
+        <div class="automation-ribbon__intro">
+          <span>Quality workflow</span>
+          <strong>One connected practice</strong>
+        </div>
+        <div class="automation-step">
+          <span class="automation-step__number">01</span>
+          <strong>UI automation</strong>
+          <span>Playwright · Selenium</span>
+        </div>
+        <span class="automation-step__connector" aria-hidden="true">→</span>
+        <div class="automation-step">
+          <span class="automation-step__number">02</span>
+          <strong>API automation</strong>
+          <span>Java · Rest Assured · TestNG</span>
+        </div>
+        <span class="automation-step__connector" aria-hidden="true">→</span>
+        <div class="automation-step">
+          <span class="automation-step__number">03</span>
+          <strong>Release confidence</strong>
+          <span>Azure DevOps · Jenkins · GitHub Actions</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="capabilities">
+      <SectionIntro
+        eyebrow="01 / What I do"
+        title="From API coverage to reliable release."
+        description="Automation, hands-on quality assurance, and CI/CD practices that make product behavior easier to trust."
+      />
+
+      <div class="capability-list">
+        {siteData.workHighlights.map((item, index) => (
+          <article class="capability-item">
+            <span class="capability-item__number">{String(index + 1).padStart(2, '0')}</span>
+            <div class="capability-item__body">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+            <span class="capability-item__meta">{item.meta}</span>
+            <span class="capability-item__arrow" aria-hidden="true">↗</span>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="container section" id="about">
+      <div class="profile-panel">
+        <div class="profile-panel__heading">
+          <p class="eyebrow">Profile details</p>
+          <h2>At a glance</h2>
+        </div>
+        <dl class="profile-facts">
+          <div><dt>Role</dt><dd>{siteData.title}</dd></div>
+          <div><dt>Specialty</dt><dd>API and UI automation, quality engineering</dd></div>
+          <div><dt>Based in</dt><dd>{siteData.location}</dd></div>
+          <div><dt>Experience</dt><dd>6.5+ years in QA</dd></div>
+          <div><dt>Automation stack</dt><dd>Java · Rest Assured · TestNG · Playwright · Selenium</dd></div>
+          <div><dt>Quality toolkit</dt><dd>Azure DevOps · SQL · Postman</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="container section" id="contact">
+      <div class="contact-feature">
+        <div>
+          <p class="eyebrow">02 / Say hello</p>
+          <h2>Have a quality challenge?</h2>
+        </div>
+        <div class="contact-feature__details">
+          <p>Open channels</p>
+          <h3>Let’s make the next release more dependable.</h3>
+          <div class="contact-links">
+            <a href={`mailto:${siteData.email}`}>Email <span aria-hidden="true">↗</span></a>
+            <a href={siteData.social[0].href} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href={siteData.resumeUrl} target="_blank" rel="noreferrer">Résumé PDF <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>

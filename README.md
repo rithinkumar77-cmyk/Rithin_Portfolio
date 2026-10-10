@@ -1,46 +1,28 @@
-# Astro Starter Kit: Basics
+# Rithin Kumar Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+This project contains a polished dark-theme portfolio for Rithin Kumar, built with Astro and TypeScript.
+
+## Current status
+
+The site structure, navigation, art direction, and deployment workflow are in place. The portfolio intentionally keeps professional details and project claims pending until the official resume is added as the source of truth.
+
+## Local development
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Production build
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npm run build
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## GitHub Pages deployment
 
-## 🧞 Commands
+The repository includes a GitHub Actions workflow for Pages deployment and a `CNAME` file for the custom domain `rithinkumar.in`.
 
-All commands are run from the root of the project, from a terminal:
+## Next step
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Add the resume document to the repository or paste the extracted content so the site can be populated with the real biography, employment history, achievements, skills, and project details.
