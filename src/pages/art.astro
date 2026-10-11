@@ -1,23 +1,130 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SectionIntro from '../components/SectionIntro.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const artwork = [
+  { number: '01', title: 'The little red tree', alt: 'A red tree in a quiet misty landscape', file: 'art-08.webp', width: 1080, height: 1620 },
+  { number: '02', title: 'Aurora dreams', alt: 'A vivid green and blue aurora over a dark forest', file: 'art-02.webp', width: 1054, height: 1492 },
+  { number: '03', title: 'RK emblem', alt: 'A white RK monogram on a red geometric background', file: 'art-03.webp', width: 1254, height: 1254 },
+  { number: '04', title: 'Northern glow', alt: 'A glowing blue and green aurora above distant trees', file: 'art-04.webp', width: 1080, height: 1620 },
+  { number: '05', title: 'Under the night sky', alt: 'A lone tree beneath a starry blue and green sky', file: 'art-05.webp', width: 1080, height: 1620 },
+  { number: '06', title: 'A window to somewhere', alt: 'A stylized cat peeking through a colorful window', file: 'art-06.webp', width: 840, height: 1800 },
+  { number: '07', title: 'Ginger cat', alt: 'A playful illustration of an orange and white cat', file: 'art-07.webp', width: 1080, height: 1620 },
+  { number: '08', title: 'Violet gaze', alt: 'An expressive anime-style portrait with violet eyes', file: 'art-09.webp', width: 1080, height: 1620 },
+  { number: '09', title: 'Bubbles by the window', alt: 'A playful pink and blue illustration of a window and bubbles', file: 'art-10.webp', width: 864, height: 1680 },
+  { number: '10', title: 'A quiet portrait', alt: 'A hand-drawn portrait with soft pink accents', file: 'art-01.webp', width: 1024, height: 1536 },
+  { number: '11', title: 'Rainy evening', alt: 'A painterly city street reflecting warm lights after rain', file: 'art-11.webp', width: 1080, height: 1559 },
+  { number: '12', title: 'A moment together', alt: 'Two silhouetted figures beneath a warm autumn-colored sky', file: 'art-12.webp', width: 839, height: 1800 },
+  { number: '13', title: 'Breakfast doodle', alt: 'A cheerful illustration of a sunny-side-up egg and a cup', file: 'art-15.webp', width: 1080, height: 1620 },
+  { number: '14', title: 'Golden gaze', alt: 'A close-up portrait focused on a bright blue eye', file: 'art-14.webp', width: 1080, height: 1620 },
+  { number: '15', title: 'An eye study', alt: 'A close-up digital painting study of a brown eye', file: 'art-13.webp', width: 1080, height: 1620 },
+  { number: '16', title: 'Portrait in warm light', alt: 'A digital portrait of a woman with curly hair and glasses', file: 'art-18.webp', width: 1080, height: 1620 },
+  { number: '17', title: 'Aurora over the forest', alt: 'A bright green aurora above a silhouetted forest', file: 'art-19.webp', width: 1080, height: 1541 },
+  { number: '18', title: 'A tiny ink sketch', alt: 'A circular black-and-white landscape sketch', file: 'art-20.webp', width: 1013, height: 1800 },
+  { number: '19', title: 'Blossom reflections', alt: 'A pink flowering tree reflected in a quiet lake', file: 'art-16.webp', width: 1067, height: 1620 },
+];
 ---
 
-<Layout title="Art & visual practice" description="Visual practice and creative work by Rithin Kumar.">
-  <main class="page-shell">
-    <div class="container">
-      <SectionIntro eyebrow="Art & visual practice" title="A space for the visual side" description="The portfolio's visual direction brings a creative sensibility to a quality engineering practice." />
-
-      <section class="section">
-        <div class="art-note">
-          <span class="art-note__index" aria-hidden="true">01</span>
-          <div>
-            <h2>Selected work will live here.</h2>
-            <p>No personal artwork was included with the resume, so this page is kept open for Rithin's own visual work rather than filled with invented samples.</p>
-          </div>
-          <div class="art-note__mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<Layout
+  title="Digital art | Rithin Kumar"
+  description="A personal collection of digital artwork by Rithin Kumar, made for the joy of exploring color, shape, and small ideas."
+  theme="art"
+>
+  <main class="art-page">
+    <section class="art-hero">
+      <div class="art-container art-hero__inner">
+        <div class="art-hero__copy">
+          <a class="art-back" href={base}><span aria-hidden="true">←</span> Back to portfolio</a>
+          <p class="art-kicker">PERSONAL PRACTICE <span>·</span> DIGITAL ART</p>
+          <h1>A little world,<br /><em>made in pixels.</em></h1>
+          <p class="art-hero__description">Digital art is a hobby I love exploring in my free time, a space to play with colors, shapes, and little ideas using Procreate and Samsung PENUP, turning moments of inspiration into something of my own, just for the joy of creating.</p>
+          <a class="art-explore" href="#artwork">Wander through the gallery <span aria-hidden="true">↓</span></a>
         </div>
-      </section>
-    </div>
+
+        <div class="art-hero__visual" aria-hidden="true">
+          <div class="art-hero__orbit art-hero__orbit--one"></div>
+          <div class="art-hero__orbit art-hero__orbit--two"></div>
+          <div class="art-hero__print art-hero__print--back">
+            <span>FORM STUDY / 01</span>
+            <svg viewBox="0 0 360 440">
+              <path class="hero-stem" d="M181 405C180 320 204 249 176 154M180 333c-47-43-69-87-71-133m86 94c42-44 62-93 58-145" />
+              <path class="hero-leaf" d="M171 289c-45-8-66-31-67-68 34 4 57 25 67 68Zm18-28c46-12 66-39 61-76-35 8-56 32-61 76ZM174 209c-37-12-52-36-48-67 29 10 45 31 48 67Z" />
+              <g class="hero-flower">
+                <ellipse cx="176" cy="130" rx="20" ry="52" transform="rotate(0 176 130)" />
+                <ellipse cx="176" cy="130" rx="20" ry="52" transform="rotate(45 176 130)" />
+                <ellipse cx="176" cy="130" rx="20" ry="52" transform="rotate(90 176 130)" />
+                <ellipse cx="176" cy="130" rx="20" ry="52" transform="rotate(135 176 130)" />
+                <circle cx="176" cy="130" r="20" />
+              </g>
+              <g class="hero-flower hero-flower--small">
+                <ellipse cx="106" cy="195" rx="13" ry="32" transform="rotate(0 106 195)" />
+                <ellipse cx="106" cy="195" rx="13" ry="32" transform="rotate(60 106 195)" />
+                <ellipse cx="106" cy="195" rx="13" ry="32" transform="rotate(120 106 195)" />
+                <circle cx="106" cy="195" r="12" />
+              </g>
+            </svg>
+          </div>
+          <div class="art-hero__print art-hero__print--front">
+            <span>COLOR STUDY / 02</span>
+            <svg viewBox="0 0 360 440">
+              <path class="hero-stem" d="M174 401c12-95 8-187 41-268m-36 188c-41-18-69-44-81-78m99 7c40-23 63-58 69-104" />
+              <path class="hero-leaf" d="M181 326c-43 6-71-11-83-51 34-5 63 12 83 51Zm7-38c43-19 61-49 53-87-33 14-51 41-53 87Zm12-105c-34-15-46-41-38-73 28 13 41 37 38 73Z" />
+              <g class="hero-flower hero-flower--second">
+                <ellipse cx="218" cy="121" rx="22" ry="57" transform="rotate(0 218 121)" />
+                <ellipse cx="218" cy="121" rx="22" ry="57" transform="rotate(45 218 121)" />
+                <ellipse cx="218" cy="121" rx="22" ry="57" transform="rotate(90 218 121)" />
+                <ellipse cx="218" cy="121" rx="22" ry="57" transform="rotate(135 218 121)" />
+                <circle cx="218" cy="121" r="18" />
+              </g>
+              <circle class="hero-sun" cx="218" cy="121" r="7" />
+            </svg>
+          </div>
+          <span class="art-hero__caption">Little experiments<br />in bloom &amp; color</span>
+        </div>
+        <div class="art-hero__bottom">        <span>01 — {String(artwork.length).padStart(2, '0')}</span><span>SCROLL TO EXPLORE</span><span>MADE FOR THE JOY OF IT</span></div>
+      </div>
+    </section>
+
+    <section class="art-gallery" id="artwork">
+      <div class="art-container">
+        <div class="art-gallery__intro">
+          <div>
+            <p class="art-kicker">THE DIGITAL SKETCHBOOK</p>
+            <h2>A collection of <em>color &amp; curiosity.</em></h2>
+          </div>
+          <p>A growing collection of small experiments, favorite moments, and ideas brought to life in pixels.</p>
+        </div>
+
+        <div class="art-gallery__grid">
+          {artwork.map((piece) => (
+            <article class="artwork-card">
+              <div
+                class="artwork-card__visual"
+                style={`--artwork-ratio: ${piece.width} / ${piece.height}`}
+              >
+                <img
+                  src={`${base}artwork/${piece.file}`}
+                  alt={piece.alt}
+                  width={piece.width}
+                  height={piece.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="artwork-card__caption">
+                <div><span>{piece.number} / DIGITAL ART</span><h3>{piece.title}</h3></div>
+                <span class="artwork-card__arrow" aria-hidden="true">↗</span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="art-gallery__end">
+          <span>AN OPEN SKETCHBOOK</span>
+          <a href={base}><span aria-hidden="true">←</span> Back to portfolio</a>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>

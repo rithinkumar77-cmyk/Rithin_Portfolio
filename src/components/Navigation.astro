@@ -5,8 +5,6 @@ const base = import.meta.env.BASE_URL;
 ---
 <nav class="site-nav" id="site-nav" aria-label="Main navigation">
   {siteData.navigation.map((item) => (
-    item.label === 'Art'
-      ? <span class="site-nav__inactive" aria-disabled="true">{item.label}</span>
-      : <a href={item.href.startsWith('/') ? `${base}${item.href.slice(1)}` : item.href}>{item.label}</a>
+    <a href={item.href.startsWith('/') ? `${base}${item.href.slice(1)}` : item.href}>{item.label}</a>
   ))}
 </nav>

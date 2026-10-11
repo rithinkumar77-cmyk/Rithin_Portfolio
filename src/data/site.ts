@@ -18,7 +18,7 @@ export const siteData = {
     { label: 'Home', href: '/#intro' },
     { label: 'About', href: '/#about' },
     { label: 'Work', href: '/#capabilities' },
-    { label: 'Art', href: '/art' },
+    { label: 'Art', href: '/art/' },
     { label: 'Resume', href: '/resume/' },
     { label: 'Contact', href: '/#contact' },
   ],
