@@ -45,6 +45,7 @@ const base = import.meta.env.BASE_URL;
 				</button>
 			</div>
 		</header>
+		<button class="nav-backdrop" type="button" aria-label="Close navigation" tabindex="-1"></button>
 
 		<slot />
 
@@ -57,17 +58,39 @@ const base = import.meta.env.BASE_URL;
 		<script>
 			const menuButton = document.querySelector<HTMLButtonElement>('.nav-toggle');
 			const siteNavigation = document.querySelector<HTMLElement>('.site-nav');
+			const menuBackdrop = document.querySelector<HTMLButtonElement>('.nav-backdrop');
+			const siteHeader = document.querySelector<HTMLElement>('.site-header');
+
+			const closeNavigation = () => {
+				menuButton?.setAttribute('aria-expanded', 'false');
+				menuButton?.setAttribute('aria-label', 'Menu');
+				siteNavigation?.classList.remove('is-open');
+				menuBackdrop?.classList.remove('is-visible');
+				siteHeader?.classList.remove('menu-open');
+				document.body.classList.remove('menu-open');
+			};
 
 			menuButton?.addEventListener('click', () => {
 				const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
 				menuButton.setAttribute('aria-expanded', String(!isExpanded));
+				menuButton.setAttribute('aria-label', isExpanded ? 'Menu' : 'Close menu');
 				siteNavigation?.classList.toggle('is-open', !isExpanded);
+				menuBackdrop?.classList.toggle('is-visible', !isExpanded);
+				siteHeader?.classList.toggle('menu-open', !isExpanded);
+				document.body.classList.toggle('menu-open', !isExpanded);
 			});
 
 			siteNavigation?.addEventListener('click', (event) => {
 				if (event.target instanceof HTMLAnchorElement) {
-					menuButton?.setAttribute('aria-expanded', 'false');
-					siteNavigation.classList.remove('is-open');
+					closeNavigation();
+				}
+			});
+
+			menuBackdrop?.addEventListener('click', closeNavigation);
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') {
+					closeNavigation();
+					menuButton.focus();
 				}
 			});
 		</script>

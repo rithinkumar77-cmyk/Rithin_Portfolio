@@ -138,8 +138,16 @@ img {
   transform: translateY(-1px);
 }
 
+.nav-backdrop {
+  display: none;
+}
+
 .page-shell {
   padding: 2rem 0 5rem;
+}
+
+.resume-page {
+  background: #dedede;
 }
 
 .hero {
@@ -2175,16 +2183,74 @@ h4 {
   }
 
   .site-nav {
-    display: none;
-    order: 3;
+    position: fixed;
+    z-index: 42;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(21rem, 86vw);
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
     justify-content: flex-start;
-    gap: 0.35rem;
-    padding-top: 0.4rem;
-    border-top: 1px solid var(--line);
+    gap: 0.45rem;
+    padding: 5.5rem 1.25rem 1.5rem;
+    border-left: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: -1.5rem 0 4rem rgba(21, 21, 23, 0.14);
+    transform: translateX(105%);
+    visibility: hidden;
+    transition: transform 220ms ease, visibility 220ms ease;
   }
 
   .site-nav.is-open {
-    display: flex;
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .site-nav a,
+  .site-nav a:last-child {
+    width: 100%;
+    margin: 0;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  .nav-backdrop.is-visible {
+    position: fixed;
+    z-index: 39;
+    inset: 0;
+    display: block;
+    border: 0;
+    background: rgba(16, 17, 20, 0.42);
+    cursor: pointer;
+  }
+
+  .site-header.menu-open {
+    z-index: 40;
+    backdrop-filter: none;
+  }
+
+  .site-header.menu-open .nav-toggle {
+    position: relative;
+    z-index: 43;
+  }
+
+  .art-theme .site-nav {
+    width: min(21rem, 86vw);
+    flex-wrap: nowrap;
+  }
+
+  .art-theme .site-nav a,
+  .art-theme .site-nav a:last-child {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  body.menu-open {
+    overflow: hidden;
   }
 
   .hero-editorial-grid h1 {
